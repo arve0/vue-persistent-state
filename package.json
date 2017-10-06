@@ -1,0 +1,40 @@
+{
+  "name": "vue-persistent-state",
+  "version": "0.0.1",
+  "description": "Persist state to localstorage",
+  "main": "index.js",
+  "scripts": {
+    "build-demo": "poi build -d docs demo.js",
+    "preversion": "npm test && npm run build-demo",
+    "postpublish": "git push && git push --tags",
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arve0/vue-persistent-state.git"
+  },
+  "keywords": [
+    "vue",
+    "reactive",
+    "state",
+    "localstorage",
+    "persistent"
+  ],
+  "author": "Arve Seljebu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arve0/vue-persistent-state/issues"
+  },
+  "homepage": "https://github.com/arve0/vue-persistent-state#readme",
+  "devDependencies": {
+    "localStorage": "^1.0.3",
+    "vue": "^2.4.4"
+  },
+  "dependencies": {
+    "deep-copy": "^1.4.0",
+    "store": "^2.0.12"
+  },
+  "poi": {
+    "homepage": "./"
+  }
+}

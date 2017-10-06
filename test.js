@@ -39,6 +39,13 @@ let tests = [
     test: function () {
       assert.equal(store.get('store').obj.a, 33, 'state should persist deeply')
     }
+  }, {
+    before: function () {
+      vm.store.arr.push(42)
+    },
+    test: function () {
+      assert.equal(store.get('store').arr[0], 42, 'should work with array.push')
+    }
   }
 ]
 

@@ -18,7 +18,7 @@ let template = `
   <input v-model="str"><br>
   <input v-model="obj.a"><br>
   {{ number }} <button @click="number++">Inc</button><br>
-  State is persisted, try refreshing page!
+  State is persisted, try refreshing the page!
 </div>
 `
 

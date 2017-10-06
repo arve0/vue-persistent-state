@@ -1,6 +1,5 @@
 # Vue persistent state
-This plugin lets you persist state in Vue through localStorage. Nice for
-small projects and prototyping, when you do not need vuex.
+This plugin lets you persist state in Vue through localStorage. Nice for prototyping and small projects, when vuex is too much.
 
 ## Install
 
@@ -39,6 +38,10 @@ let vm = new Vue({
 ```
 
 [Demo](https://arve0.github.io/vue-persistent-state)
+
+This gives you a global mutable state, available in all Vue instances.
+
+If you rather want to configure persistent state component-wise, [vue-persist](https://www.npmjs.com/package/vue-persist) might be a better fit.
 
 ## License
 ISC

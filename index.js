@@ -10,14 +10,17 @@ exports.install = function (Vue, initialState) {
     store.set(key, val)
     state[key] = val
   }
+  // make sure nested objects in initialState are not mutated
+  state = copy(state)
 
   Vue.mixin({
     data: function () {
-      // make sure nested objects in initialState are not mutated
-      return copy(state)
+      return state
     },
     watch: createWatchers(state)
   })
+  // make store API available through $store
+  Vue.prototype.$store = store
 }
 
 function createWatchers (state) {

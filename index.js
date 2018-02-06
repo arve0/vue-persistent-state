@@ -5,7 +5,7 @@ exports.install = function (Vue, initialState) {
   // get state from localStorage
   let state = {}
   for (let key in initialState) {
-    let val = store.get(key) || initialState[key]
+    let val = store.get(key, initialState[key])
     // initial population to localStorage
     store.set(key, val)
     state[key] = val

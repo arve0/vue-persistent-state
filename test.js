@@ -13,8 +13,12 @@ let initialState = {
       a: '1',
       b: 2
     }
-  }
+  },
+  falsey: true
 }
+
+// `falsey` should not be overridden by initialState
+store.set('falsey', false)
 
 Vue.use(persistentState, initialState)
 
@@ -45,6 +49,10 @@ let tests = [
     },
     test: function () {
       assert.equal(store.get('store').arr[0], 42, 'should work with array.push')
+    }
+  }, {
+    test: function () {
+      assert.equal(store.get('falsey'), false, 'should store falsey values')
     }
   }
 ]

@@ -14,7 +14,8 @@ let initialState = {
       b: 2
     }
   },
-  falsey: true
+  falsey: true,
+  both: 0,
 }
 
 // `falsey` should not be overridden by initialState
@@ -23,6 +24,7 @@ store.set('falsey', false)
 Vue.use(persistentState, initialState)
 
 let vm = new Vue({})
+let vm2 = new Vue({})
 
 let tests = [
   {
@@ -54,7 +56,12 @@ let tests = [
     test: function () {
       assert.equal(store.get('falsey'), false, 'should store falsey values')
     }
-  }
+  }, {
+    test: function () {
+      vm.both = 1234
+      assert.equal(vm2.both, 1234, 'should update state in all Vue instances')
+    }
+  },
 ]
 
 async function runTests () {

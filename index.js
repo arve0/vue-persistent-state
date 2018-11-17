@@ -1,6 +1,8 @@
 const store = require('store')
 const copy = require('deep-copy')
 
+let globalState  // avoid garbage collection
+
 exports.install = function (Vue, initialState) {
   // get state from localStorage
   let state = {}
@@ -13,17 +15,22 @@ exports.install = function (Vue, initialState) {
   // make sure nested objects in initialState are not mutated
   state = copy(state)
 
+  // watch for changes
+  globalState = new Vue({
+    data: state,
+    watch: createWatchConfig(state),
+  })
+
   Vue.mixin({
     data: function () {
       return state
     },
-    watch: createWatchers(state)
   })
   // make store API available through $store
   Vue.prototype.$store = store
 }
 
-function createWatchers (state) {
+function createWatchConfig (state) {
   let watch = {}
   for (let key in state) {
     watch[key] = {

@@ -28,6 +28,7 @@
   "homepage": "https://github.com/arve0/vue-persistent-state#readme",
   "devDependencies": {
     "localStorage": "^1.0.3",
+    "poi": "^10.2.10",
     "vue": "^2.4.4"
   },
   "dependencies": {

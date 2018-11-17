@@ -4,7 +4,7 @@
   "description": "Persist state to localstorage",
   "main": "index.js",
   "scripts": {
-    "build-demo": "poi build -d docs demo.js",
+    "build-demo": "poi build --out-dir docs demo.js",
     "preversion": "npm test && npm run build-demo",
     "postpublish": "git push && git push --tags",
     "test": "node test.js"
@@ -37,5 +37,8 @@
   },
   "poi": {
     "homepage": "./"
-  }
+  },
+  "files": [
+    "index.js"
+  ]
 }
